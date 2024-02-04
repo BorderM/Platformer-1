@@ -6,4 +6,4 @@
 
 02/02 - Added level up feature (max hp increases with levels), fixed resolution scaling, added player damage and monster health, limited hp gained from cherries to max hp, updated buttons with themes.  
 
-03/02 - Added large portions to the map. Implemented ladders and climbing. Added match system for cherry and frog spawning
+03/02 - Added large portions to the map. Implemented ladders and climbing. Added match system for cherry and frog spawning (to be changed later to a more efficient method)

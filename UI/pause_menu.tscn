@@ -1,0 +1,121 @@
+[gd_scene load_steps=14 format=3 uid="uid://bhwqls0yyqsjn"]
+
+[ext_resource type="Script" path="res://UI/pause_menu.gd" id="1_dmqev"]
+[ext_resource type="Texture2D" uid="uid://wx3d3efj1j4i" path="res://Themes/GUI.png" id="2_6cq1s"]
+[ext_resource type="Theme" uid="uid://b2nbhmu1wnrlm" path="res://UI/game_theme.tres" id="2_lp4us"]
+[ext_resource type="Theme" uid="uid://bggh3lkw4p7y" path="res://Themes/my_theme.tres" id="3_q3c05"]
+
+[sub_resource type="Shader" id="Shader_2vyni"]
+code = "shader_type canvas_item;
+uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap;
+
+uniform float lod: hint_range(0.0, 5) = 0.0;
+
+void fragment(){
+	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV, lod);
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1iln2"]
+shader = SubResource("Shader_2vyni")
+shader_parameter/lod = 0.753
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_td4x8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uv4kx"]
+texture = ExtResource("2_6cq1s")
+region_rect = Rect2(113, 113, 30, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hpm6g"]
+texture = ExtResource("2_6cq1s")
+region_rect = Rect2(113, 98, 30, 13)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ti7mp"]
+texture = ExtResource("2_6cq1s")
+region_rect = Rect2(113, 81, 30, 14)
+
+[sub_resource type="Theme" id="Theme_fu077"]
+Button/styles/hover = SubResource("StyleBoxTexture_td4x8")
+buttonpause/base_type = &"Button"
+buttonpause/styles/hover = SubResource("StyleBoxTexture_uv4kx")
+buttonpause/styles/normal = SubResource("StyleBoxTexture_hpm6g")
+buttonpause/styles/pressed = SubResource("StyleBoxTexture_ti7mp")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yspck"]
+
+[sub_resource type="Theme" id="Theme_fxilu"]
+Button/font_sizes/font_size = 21
+Button/styles/disabled = SubResource("StyleBoxTexture_yspck")
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_dmqev")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_1iln2")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.5
+offset_top = -135.0
+offset_right = 150.5
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_fu077")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_fxilu")
+theme_override_constants/separation = 19
+
+[node name="Label" type="Label" parent="ColorRect/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 1.58
+theme = ExtResource("2_lp4us")
+theme_override_font_sizes/font_size = 34
+text = "= Pause = "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resume" type="Button" parent="ColorRect/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 1.56
+theme = ExtResource("3_q3c05")
+theme_type_variation = &"buttonmains"
+text = "Resume"
+
+[node name="Save" type="Button" parent="ColorRect/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 2.14
+theme = ExtResource("3_q3c05")
+theme_type_variation = &"buttonmains"
+text = "Save and Exit"
+
+[connection signal="pressed" from="ColorRect/PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="ColorRect/PanelContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]

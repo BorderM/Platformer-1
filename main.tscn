@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcrthyxhesvbh"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_mdtpm"]
+[ext_resource type="PackedScene" uid="uid://cbnmsxy4oquor" path="res://UI/empty_save.tscn" id="2_ax3o4"]
+[ext_resource type="PackedScene" uid="uid://4fjua8bsh804" path="res://instructions.tscn" id="2_fmsoh"]
+[ext_resource type="PackedScene" uid="uid://visyg3xiu0db" path="res://bg.tscn" id="2_sy1c5"]
+[ext_resource type="Theme" uid="uid://bggh3lkw4p7y" path="res://Themes/my_theme.tres" id="2_tuqwi"]
+[ext_resource type="PackedScene" uid="uid://dxr1bh6na75bx" path="res://UI/Overwrite.tscn" id="3_lecpe"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_mdtpm")
+
+[node name="BG" parent="." instance=ExtResource("2_sy1c5")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.5
+offset_top = -142.0
+offset_right = 69.5
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/separation = 22
+
+[node name="Play" type="Button" parent="BG/VBoxContainer"]
+light_mask = 4
+layout_mode = 2
+theme = ExtResource("2_tuqwi")
+theme_override_font_sizes/font_size = 21
+text = "New Game"
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="BG/VBoxContainer/Play"]
+
+[node name="Overwrite" parent="BG/VBoxContainer/Play/CanvasLayer" instance=ExtResource("3_lecpe")]
+offset_left = 25.0
+offset_top = 36.0
+offset_right = -17.0
+offset_bottom = 5.0
+
+[node name="Load" type="Button" parent="BG/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_tuqwi")
+theme_override_font_sizes/font_size = 21
+text = "Load"
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="BG/VBoxContainer/Load"]
+
+[node name="Empty save" parent="BG/VBoxContainer/Load/CanvasLayer" instance=ExtResource("2_ax3o4")]
+size_flags_horizontal = 4
+size_flags_vertical = 6
+metadata/_edit_lock_ = true
+
+[node name="Instructions" type="Button" parent="BG/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_tuqwi")
+theme_override_font_sizes/font_size = 21
+text = "Instructions"
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="BG/VBoxContainer/Instructions"]
+
+[node name="Instructions2" parent="BG/VBoxContainer/Instructions/CanvasLayer" instance=ExtResource("2_fmsoh")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Quit" type="Button" parent="BG/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_tuqwi")
+theme_override_font_sizes/font_size = 20
+text = "Quit"
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="BG/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="BG/VBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="BG/VBoxContainer/Instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="BG/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

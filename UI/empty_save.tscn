@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbnmsxy4oquor"]
+
+[ext_resource type="Script" path="res://Emptysavepopup.gd" id="1_pbvj6"]
+[ext_resource type="Theme" uid="uid://bggh3lkw4p7y" path="res://Themes/my_theme.tres" id="2_j1ccm"]
+
+[node name="Empty save" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pbvj6")
+
+[node name="Empty save panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -221.5
+offset_top = -83.4999
+offset_right = 221.5
+offset_bottom = 83.4999
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Empty save panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.756863, 0.603922, 0.537255, 0.933333)
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Empty save panel/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -55.5
+offset_top = -60.0
+offset_right = 55.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Ok" type="Button" parent="Empty save panel/ColorRect/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("2_j1ccm")
+theme_override_font_sizes/font_size = 25
+text = "Ok"
+
+[node name="No save" type="Label" parent="Empty save panel"]
+layout_mode = 0
+offset_left = -9.0
+offset_top = -8.0
+offset_right = 451.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 35
+text = "No save file found"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start new" type="Label" parent="Empty save panel"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = 35.0
+offset_right = 449.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 35
+text = "Please start a new game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Empty save panel/ColorRect/VBoxContainer/Ok" to="." method="_on_ok_pressed"]

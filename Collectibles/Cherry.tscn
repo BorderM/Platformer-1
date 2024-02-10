@@ -15,10 +15,10 @@ script/source = "extends Area2D
 
 func _on_body_entered(body):
 	if body.name == \"Player\":
-		Game.gold += 3
-		Game.playerHP += 2
-		if Game.playerHP > Game.player_max_hp:
-			Game.playerHP = Game.player_max_hp
+		body.gold += 3
+		body.playerHP += 2
+		if body.playerHP > body.player_max_hp:
+			body.playerHP = body.player_max_hp
 		var tween = get_tree().create_tween()
 		var tween1 = get_tree().create_tween()
 		tween.tween_property(self, \"position\", position - Vector2(0,35), 0.4)

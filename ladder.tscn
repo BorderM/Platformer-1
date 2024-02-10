@@ -4,21 +4,22 @@
 [ext_resource type="Texture2D" uid="uid://drvimmbwbqq7p" path="res://sunny-land/assets/sprites/doubleladder.png" id="2_waoto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiwey"]
-size = Vector2(32, 160)
+size = Vector2(23, 149)
 
 [node name="Ladder" type="Area2D"]
+position = Vector2(-2, 1)
 script = ExtResource("1_7o04f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(329, 161)
+position = Vector2(17.5, 78.5)
 shape = SubResource("RectangleShape2D_yiwey")
 
 [node name="TopLadder" type="Sprite2D" parent="."]
-position = Vector2(329, 121)
+position = Vector2(18, 39)
 texture = ExtResource("2_waoto")
 
 [node name="BottomLadder" type="Sprite2D" parent="."]
-position = Vector2(329, 201)
+position = Vector2(18, 119)
 texture = ExtResource("2_waoto")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

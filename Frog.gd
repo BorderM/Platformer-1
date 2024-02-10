@@ -2,20 +2,26 @@ extends CharacterBody2D
 
 class_name frogBody
 
+enum direction {left, right}
+
 var hasBeenHit: bool = false
 var frogHP = 1
 var speed = 100
 var player
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var chase = false
-var facing_right = false
+var facing_dir = direction.left
+var rand_gen = RandomNumberGenerator.new()
+const JUMP_VELOCITY = -350.0
 
-	#get_node("AnimatedSprite2D").play("Jump")
-	#velocity.x = speed * -1
-	#velocity.x = 0
-	#get_node("AnimatedSprite2D").play("Idle")		
+	
 func _ready():
-	get_node("AnimatedSprite2D").play("Jump")	
+	rand_gen.randomize()
+	if rand_gen.randf_range(-1, 1) < 0: 
+		velocity.x = speed * -1
+	else:
+		velocity.x = speed
+	$AnimatedSprite2D.play("Jump")	
 	
 func _on_player_ready():
 	start_chasing()
@@ -28,52 +34,54 @@ func _physics_process(delta):
 	#sets gravity of frog
 	velocity.y += gravity * delta
 
-	if get_node("AnimatedSprite2D").animation != "Death":
-			#get_node("AnimatedSprite2D").play("Jump")
-		if (!$GroundDetect.is_colliding() or $WallDetect.is_colliding()) and is_on_floor():
-			if facing_right == false:
-				facing_right = true
-				scale.x = abs(scale.x) * -1
-				#get_node("AnimatedSprite2D").flip_h = true
-				velocity.x = speed 
-			elif facing_right == true:
-				facing_right = false
-				scale.x = abs(scale.x) * -1
-				#get_node("AnimatedSprite2D").flip_h = false
-				velocity.x = speed * -1
-		elif chase == true:
-			#if get_node("AnimatedSprite2D").animation != "Death":
-			#get_node("AnimatedSprite2D").play("Jump")
-			player = get_node("../../Player/Player")
-			var direction = (player.position - self.position).normalized()
-			if direction.x > 0:
-				facing_right = true
-				scale.x = abs(scale.x) * -1
+	if $AnimatedSprite2D.animation != "Death":
+			#if the raycast is hitting nothing or a wall and the frog is on the floor flip facing side
+		if chase == true:
+			if !$GroundDetect.is_colliding() and is_on_floor():
+				$WallDetect.enabled = false
+				velocity.y = JUMP_VELOCITY
+				player = get_node("../../../Player/Player")
+				var direction = (player.position - self.position).normalized()
 				velocity.x = direction.x * speed
-			elif direction.x < 0:
-				facing_right = false
-				scale.x = abs(scale.x) * -1
-				#flip()
-					#get_node("AnimatedSprite2D").flip_h = false
+			else: 
+				$WallDetect.enabled = false
+				player = get_node("../../../Player/Player")
+				var direction = (player.position - self.position).normalized()
 				velocity.x = direction.x * speed
-		#velocity.x = direction.x * speed
-		else:
-			if facing_right == true:
-				scale.x = abs(scale.x) * -1
+		elif (!$GroundDetect.is_colliding() or $WallDetect.is_colliding()) and is_on_floor():
+			if velocity.x < 0:
 				velocity.x = speed
-			elif facing_right == false:
-				scale.x = abs(scale.x) * -1
-				velocity.x = speed * -1
+			elif velocity.x > 0:
+				velocity.x = -speed
+		else:
+			if velocity.x < 0:
+				velocity.x = -speed
+			elif velocity.x > 0:
+				velocity.x = speed
+	$WallDetect.enabled = true
+	
+	if velocity.x < 0:
+		if facing_dir != direction.left:
+			facing_dir = direction.left
+			change_dir()
+			
+	elif velocity.x > 0:
+		if facing_dir != direction.right:
+			facing_dir = direction.right
+			change_dir()
+			
 
 	
-		
-		#velocity.x = speed
-	
-	move_and_slide()#position.x * speed
+	move_and_slide()
 
-	#if the raycast is hitting nothing and the frog is on the floor flip facing side
-	
-		
+
+func change_dir():
+	$AnimatedSprite2D.flip_h = true if facing_dir == direction.right else false
+	$WallDetect.position.x = 13 if facing_dir == direction.right else -13
+	$WallDetect.target_position.x = 7 if facing_dir == direction.right else -7
+	$GroundDetect.position.x = 16 if facing_dir == direction.right else -16
+	$PlayerDetection/CollisionPolygon2D.position.x = 87.5 if facing_dir == direction.right else -87.5
+	$PlayerDetection/CollisionPolygon2D.scale.x = -3.361 if facing_dir == direction.right else 3.361
 		
 func _on_mob_head_body_entered(body):
 	if body.name == "Player":
@@ -91,30 +99,25 @@ func _on_player_detection_body_exited(body):
 func _on_player_collision_body_entered(body):
 	if body.name == "Player" and hasBeenHit == false:
 		hasBeenHit = true
-		Game.playerHP -= 3
+		body.playerHP -= 3
 		frog_take_damage()
 		
 func frog_take_damage():
-	frogHP -= Game.player_power
+	frogHP -= get_node("../../../Player/Player").player_power
 	if frogHP <= 0:
 		frog_death()
 			
 
 func frog_death():
-	Game.gold += 5
-	Game.gain_experience(1)
+	get_node("../../../Player/Player").gold += 5
+	get_node("../../../Player/Player").gain_experience(1)
 	chase = false
-	get_node("AnimatedSprite2D").play("Death")
-	await get_node("AnimatedSprite2D").animation_finished
+	$MobHead/CollisionShape2D.disabled = true
+	$MobSides/CollisionShape2D.disabled = true
+	$AnimatedSprite2D.play("Death")
+	await $AnimatedSprite2D.animation_finished
 	self.queue_free()
+	
 
-func flip():
-	facing_right = !facing_right
-	
-	
-	if facing_right == true:
-		speed = speed
-	else:
-		speed = speed * -1
 
 

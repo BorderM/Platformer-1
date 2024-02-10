@@ -1,0 +1,20 @@
+res://Frog.tscn
+res://UI/pause_menu.gd
+res://Emptysavepopup.gd
+res://Themes/my_theme.tres
+res://Font/Line spacing.tres
+res://UI/pausemenu2.gdshader
+res://bg.tscn
+res://main.tscn
+res://world.tscn
+res://Player/Player.tscn
+res://ladder.tscn
+res://Collectibles/Cherry.tscn
+res://Frog.gd
+res://world.gd
+res://game_over.tscn
+res://UI/pause_menu.tscn
+res://game_over.gd
+res://Player/Player.gd
+res://UI/Overwrite.gd
+res://main.gd

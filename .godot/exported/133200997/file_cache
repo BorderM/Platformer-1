@@ -1,0 +1,16 @@
+res://Collectibles/Cherry.tscn::b48870af8391ba137b25d3cde0264b44::1707541682::res://.godot/exported/133200997/export-b81088a6733e7ab09039e3e3476deb4c-Cherry.scn
+res://Player/Player.tscn::9018f3326b2cac95121127916f5eeb80::1707541682::res://.godot/exported/133200997/export-48b487cb3fbab0e0d627d8f8de2ba1d9-Player.scn
+res://bg.tscn::08cc0a12384ae75ceb17059f75ffc780::1707541682::res://.godot/exported/133200997/export-bba13d5cf0da78405995582cb41e9396-bg.scn
+res://Frog.tscn::8eed33fff2c2339ee010f5b5fdf6c730::1707541682::res://.godot/exported/133200997/export-140d17860f307c4479861481bc4b5af0-Frog.scn
+res://main.tscn::76632e1cce7f409dc748cf51e6c772fd::1707541682::res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn
+res://world.tscn::3d3de977037d913e533ee516a80f1de1::1707541682::res://.godot/exported/133200997/export-76e0adcbc83681695885bae615f516ae-world.scn
+res://UI/game_theme.tres::ba70192de2321aeea0c362ea6eb527e5::1706663052::res://.godot/exported/133200997/export-9d18ec9fa55181823a72e2d025f0d506-game_theme.res
+res://UI/Overwrite.tscn::1ccc2519b799ecc8cd19d6138e360830::1707431900::res://.godot/exported/133200997/export-9943af7c6ec54e2c27ada8571ed111e8-Overwrite.scn
+res://UI/pause_menu.tscn::1e272332b1cf339573fedc67e22dd2ac::1707541682::res://.godot/exported/133200997/export-525826eebbacba7f238c774f76aea232-pause_menu.scn
+res://Font/Line spacing.tres::7c60af9ed55865e32351a07cef5ece17::1707508696::res://.godot/exported/133200997/export-8f6aa23acd45269c8a9ef0c8a746ffca-Line spacing.res
+res://instructions.tscn::1b73c52abf83e3b0b96a03d60301c999::1706995374::res://.godot/exported/133200997/export-b9a5b0aae201866f05db88fd95aaf544-instructions.scn
+res://Themes/my_theme.tres::331f7b5ab3f415e4cc02126b894e3cdf::1707508696::res://.godot/exported/133200997/export-2f69714f0d4af55b9c8472242f0f7628-my_theme.res
+res://UI/empty_save.tscn::0cdfbaa169baf40c53a02f70a385f426::1706995374::res://.godot/exported/133200997/export-b9af599e4e5f8eba1d265a0211a70f3f-empty_save.scn
+res://UI/pause_menu_2.tscn::1258c52874165db945d5195765d928bb::1706837286::res://.godot/exported/133200997/export-8d5e080914e3b5931db4aefa8417589c-pause_menu_2.scn
+res://ladder.tscn::9c435ae3efba169ecfaf00025d7284b2::1707541682::res://.godot/exported/133200997/export-61d09a3c1b01aa618cf7611fc62451ae-ladder.scn
+res://game_over.tscn::ca85b2e1999cf34042ff507bfa16ddd1::1707541682::res://.godot/exported/133200997/export-d8e4acb474e0f28479495aaad84d873f-game_over.scn

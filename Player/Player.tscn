@@ -288,7 +288,8 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 3
+collision_mask = 3
 floor_constant_speed = true
 script = ExtResource("1_qx5my")
 

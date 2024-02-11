@@ -1,30 +1,28 @@
 extends Control
 
-@onready var world_manager : WorldManager = get_node("../..")
-
-# Called when the node enters the scene tree for the first time.
 
 func _ready():
 	hide()
 
-#func _process(delta):
-	#if not (Input.is_action_just_pressed("ui_cancel")):
-		#return
-	#elif visible:
-		#print(true)
-		#world_manager.game_paused = !world_manager.game_paused
-		#hide()
+var game_paused : bool = false:
+	set = set_paused
+		
+func set_paused(value:bool) -> void:
+	game_paused = value
+	get_tree().paused = game_paused
+	visible = game_paused
 
-	
-	
+func _input(event : InputEvent) -> void:
+	if event.is_action_pressed("esc"):
+		game_paused = !game_paused
+		visible = game_paused
 
 func _on_resume_pressed():
-	world_manager.game_paused = !world_manager.game_paused
-	hide()
+	game_paused = false
 	
 func _on_save_pressed():
 	Utils.saveGame()
-	world_manager.game_paused = !world_manager.game_paused
+	game_paused = false
 	get_tree().change_scene_to_file("res://main.tscn")
 	
 

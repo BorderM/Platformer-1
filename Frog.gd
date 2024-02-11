@@ -13,9 +13,11 @@ var chase = false
 var facing_dir = direction.left
 var rand_gen = RandomNumberGenerator.new()
 const JUMP_VELOCITY = -350.0
+var given_rewards = false
 
 	
 func _ready():
+	health_bar()
 	rand_gen.randomize()
 	if rand_gen.randf_range(-1, 1) < 0: 
 		velocity.x = speed * -1
@@ -48,17 +50,18 @@ func _physics_process(delta):
 				player = get_node("../../../Player/Player")
 				var direction = (player.position - self.position).normalized()
 				velocity.x = direction.x * speed
+			$WallDetect.enabled = true	
 		elif (!$GroundDetect.is_colliding() or $WallDetect.is_colliding()) and is_on_floor():
-			if velocity.x < 0:
+			if velocity.x <= 0:
 				velocity.x = speed
-			elif velocity.x > 0:
+			elif velocity.x >= 0:
 				velocity.x = -speed
 		else:
-			if velocity.x < 0:
+			if velocity.x <= 0:
 				velocity.x = -speed
-			elif velocity.x > 0:
+			elif velocity.x >= 0:
 				velocity.x = speed
-	$WallDetect.enabled = true
+		
 	
 	if velocity.x < 0:
 		if facing_dir != direction.left:
@@ -104,20 +107,26 @@ func _on_player_collision_body_entered(body):
 		
 func frog_take_damage():
 	frogHP -= get_node("../../../Player/Player").player_power
+	health_bar()
 	if frogHP <= 0:
+		frogHP = 0
 		frog_death()
 			
 
 func frog_death():
-	get_node("../../../Player/Player").gold += 5
-	get_node("../../../Player/Player").gain_experience(1)
-	chase = false
-	$MobHead/CollisionShape2D.disabled = true
-	$MobSides/CollisionShape2D.disabled = true
-	$AnimatedSprite2D.play("Death")
-	await $AnimatedSprite2D.animation_finished
-	self.queue_free()
+	$ProgressBar.hide()
+	if not given_rewards:
+		given_rewards = true
+		get_node("../../../Player/Player").gold += 3
+		get_node("../../../Player/Player").gain_experience(1)
+		$MobHead/CollisionShape2D.disabled = true
+		$MobSides/CollisionShape2D.disabled = true
+		chase = false
+		$AnimatedSprite2D.play("Death")
+		await $AnimatedSprite2D.animation_finished
+		self.queue_free()
 	
-
+func health_bar():
+	$ProgressBar.value = frogHP
 
 

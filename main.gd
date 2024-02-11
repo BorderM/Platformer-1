@@ -22,6 +22,7 @@ func _on_play_pressed():
 		emit_signal("save_file_found", is_saved)
 	else:
 		Utils.start_game()
+		player_ref.new_game()
 
 func _on_load_pressed():
 	if !FileAccess.file_exists(SAVE_PATH):

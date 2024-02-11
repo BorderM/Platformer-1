@@ -11,11 +11,12 @@
 [sub_resource type="GDScript" id="GDScript_hyq7q"]
 script/source = "extends Area2D
 
-
+var given_rewards = false
 
 func _on_body_entered(body):
 	if body.name == \"Player\":
-		body.gold += 3
+		given_rewards = true
+		body.gold += 1
 		body.playerHP += 2
 		if body.playerHP > body.player_max_hp:
 			body.playerHP = body.player_max_hp

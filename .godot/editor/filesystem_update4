@@ -4,12 +4,15 @@ res://Emptysavepopup.gd
 res://Themes/my_theme.tres
 res://Font/Line spacing.tres
 res://UI/pausemenu2.gdshader
-res://world.gd
+res://Player/Player.gd
+res://Global/Utils.gd
 res://main.tscn
 res://world.tscn
 res://Player/Player.tscn
 res://Frog.tscn
 res://game_over.tscn
 res://UI/pause_menu.tscn
-res://ladder.gd
 res://ladder.tscn
+res://Collectibles/Cherry.tscn
+res://Frog.gd
+res://HealthBar.gd

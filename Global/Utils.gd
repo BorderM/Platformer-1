@@ -2,8 +2,7 @@ extends Node
 
 @export var player_pos : Vector2
 const SAVE_PATH = "res://savegame.bin"
-#var player_ref : Player = preload("res://Player/Player.gd").new()
-
+var player_ref : Player = preload("res://Player/Player.gd").new()
 
 func saveGame():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -20,19 +19,19 @@ func saveGame():
 	file.store_line(jstr)
 	
 	
-func loadGame():
-	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
-	if FileAccess.file_exists(SAVE_PATH) == true:
-		if not file.eof_reached():
-			var current_line = JSON.parse_string(file.get_line())
-			if current_line:
-				Game.playerHP = current_line["playerHP"]
-				Game.gold = current_line["gold"]
-				Game.player_pos = current_line["playerPos"]
-				Game.player_current_xp = current_line["player_current_xp"]
-				Game.player_level = current_line["player_level"]
-				Game.player_total_xp = current_line["player_total_xp"]
-				Game.player_max_hp = current_line["player_max_hp"]
+#func loadGame():
+	#var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	#if FileAccess.file_exists(SAVE_PATH) == true:
+		#if not file.eof_reached():
+			#var current_line = JSON.parse_string(file.get_line())
+			#if current_line:
+				#player_ref.playerHP = current_line["playerHP"]
+				#player_ref.gold = current_line["gold"]
+				#player_ref.player_pos = current_line["playerPos"]
+				#player_ref.player_current_xp = current_line["player_current_xp"]
+				#player_ref.player_level = current_line["player_level"]
+				#player_ref.player_total_xp = current_line["player_total_xp"]
+				#player_ref.player_max_hp = current_line["player_max_hp"]
 				
 				
 	

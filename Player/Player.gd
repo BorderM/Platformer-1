@@ -5,7 +5,7 @@ class_name Player
 
 
 const SAVE_PATH = "res://savegame.bin"
-var utils_ref : Utils = preload("res://Global/Utils.gd").new()
+#var utils_ref : Utils = preload("res://Global/Utils.gd").new()
 var node_ready = Signal()
 var player
 var playerHP = 10
@@ -32,15 +32,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	if FileAccess.file_exists(SAVE_PATH) == true and Game.load == true and playerHP > 0:
 		loadGame()
-	else: 
-		playerHP = 10
-		gold = 0
-		player_current_xp = 0
-		player_level = 1
-		player_total_xp = 0
-		player_max_hp = 10	
+	
 	
 func _physics_process(delta):
+	health_bar()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -109,7 +104,23 @@ func level_up():
 	player_level += 1
 	xp_to_level = get_xp_to_level(player_level + 1)
 	player_max_hp += 3
+	
 
+func new_game():
+	$"HealthBar".max_value = player_max_hp
+	playerHP = 10
+	gold = 0
+	player_pos = Vector2()
+	player_max_hp = 10
+	player_level = 1
+	xp_to_level = get_xp_to_level(player_level + 1)
+	player_total_xp = 0
+	player_current_xp = 0
+	player_power = 1
+
+func health_bar():
+	$"HealthBar".value = playerHP
+	$"HealthBar".max_value = player_max_hp
 
 func loadGame():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)

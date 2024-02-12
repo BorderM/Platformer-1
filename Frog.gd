@@ -114,7 +114,7 @@ func frog_take_damage():
 			
 
 func frog_death():
-	$ProgressBar.hide()
+	$HealthBar.hide()
 	if not given_rewards:
 		given_rewards = true
 		get_node("../../../Player/Player").gold += 3
@@ -127,6 +127,6 @@ func frog_death():
 		self.queue_free()
 	
 func health_bar():
-	$ProgressBar.value = frogHP
+	$HealthBar.value = frogHP
 
 

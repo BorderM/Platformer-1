@@ -319,12 +319,10 @@ autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(9, 13)
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_xoxv0")
 metadata/_edit_lock_ = true
 
 [node name="HealthBar" type="ProgressBar" parent="."]
-anchors_preset = -1
 offset_left = -16.0
 offset_top = -19.0
 offset_right = 34.0

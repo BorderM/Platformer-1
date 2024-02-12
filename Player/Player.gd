@@ -107,7 +107,6 @@ func level_up():
 	
 
 func new_game():
-	$"HealthBar".max_value = player_max_hp
 	playerHP = 10
 	gold = 0
 	player_pos = Vector2()

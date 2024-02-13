@@ -470,15 +470,15 @@ script/source = "extends Node2D
 
 var frog = preload(\"res://Frog.tscn\")
 @onready var frog_spawns = [
-	get_node(\"../Spawners/Spawner\"), 
-	get_node(\"../Spawners/Spawner2\"),
-	get_node(\"../Spawners/Spawner3\"),
-	get_node(\"../Spawners/Spawner4\"),
-	get_node(\"../Spawners/Spawner5\"),
-	get_node(\"../Spawners/Spawner6\"),
-	get_node(\"../Spawners/Spawner7\"),
-	get_node(\"../Spawners/Spawner8\"),
-	get_node(\"../Spawners/Spawner9\")
+	get_node(\"../FrogSpawners/Spawner\"), 
+	get_node(\"../FrogSpawners/Spawner2\"),
+	get_node(\"../FrogSpawners/Spawner3\"),
+	get_node(\"../FrogSpawners/Spawner4\"),
+	get_node(\"../FrogSpawners/Spawner5\"),
+	get_node(\"../FrogSpawners/Spawner6\"),
+	get_node(\"../FrogSpawners/Spawner7\"),
+	get_node(\"../FrogSpawners/Spawner8\"),
+	get_node(\"../FrogSpawners/Spawner9\")
 ]
 
 
@@ -572,15 +572,15 @@ script/source = "extends Node2D
 var Cherry = preload(\"res://Collectibles/Cherry.tscn\")
 
 @onready var cherry_spawns = [
-	get_node(\"../Spawners/Spawner\"), 
-	get_node(\"../Spawners/Spawner2\"),
-	get_node(\"../Spawners/Spawner3\"),
-	get_node(\"../Spawners/Spawner4\"),
-	get_node(\"../Spawners/Spawner5\"),
-	get_node(\"../Spawners/Spawner6\"),
-	get_node(\"../Spawners/Spawner7\"),
-	get_node(\"../Spawners/Spawner8\"),
-	get_node(\"../Spawners/Spawner9\")
+	get_node(\"../FrogSpawners/Spawner\"), 
+	get_node(\"../FrogSpawners/Spawner2\"),
+	get_node(\"../FrogSpawners/Spawner3\"),
+	get_node(\"../FrogSpawners/Spawner4\"),
+	get_node(\"../FrogSpawners/Spawner5\"),
+	get_node(\"../FrogSpawners/Spawner6\"),
+	get_node(\"../FrogSpawners/Spawner7\"),
+	get_node(\"../FrogSpawners/Spawner8\"),
+	get_node(\"../FrogSpawners/Spawner9\")
 ]
 
 
@@ -606,9 +606,9 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_ascjm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 822, 407, 0, 0, 0, 0, 955, 406)
+"points": PackedVector2Array(0, 0, 0, 0, 822, 407, 0, 0, 0, 0, 933, 407, 0, 0, 0, 0, 955, 406)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_5b6jw"]
 _data = {
@@ -853,6 +853,106 @@ position = Vector2(1521.5, 799)
 scale = Vector2(0.841464, 0.753846)
 texture = ExtResource("10_h4xm0")
 
+[node name="Tree" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(927, 361)
+texture = ExtResource("11_15lrn")
+
+[node name="Tree2" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(1172, 953)
+texture = ExtResource("11_15lrn")
+
+[node name="Pine3" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(1534, 955)
+scale = Vector2(0.756098, 0.815385)
+texture = ExtResource("10_h4xm0")
+
+[node name="Pine4" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(432, 945)
+texture = ExtResource("10_h4xm0")
+
+[node name="Palm3" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(914, 696)
+texture = ExtResource("12_8gngn")
+
+[node name="Bush" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(1107, 722)
+texture = ExtResource("13_qajqe")
+
+[node name="Bush2" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(1204, 722)
+texture = ExtResource("13_qajqe")
+
+[node name="Bush3" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(1193, 834)
+texture = ExtResource("13_qajqe")
+
+[node name="Bush4" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(1232, 834)
+texture = ExtResource("13_qajqe")
+
+[node name="Tree3" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(631, 361)
+texture = ExtResource("11_15lrn")
+
+[node name="Pine5" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(1454, 624)
+texture = ExtResource("10_h4xm0")
+
+[node name="Pine6" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(1508.5, 606)
+scale = Vector2(1.18293, 1.26154)
+texture = ExtResource("10_h4xm0")
+
+[node name="Bush5" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(1828, 562)
+texture = ExtResource("13_qajqe")
+
+[node name="Bush6" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(1764, 402)
+texture = ExtResource("13_qajqe")
+
+[node name="Bush7" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(1642, 402)
+texture = ExtResource("13_qajqe")
+
+[node name="Bush8" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(1849, 562)
+texture = ExtResource("13_qajqe")
+
+[node name="Bush9" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(814, 930)
+texture = ExtResource("13_qajqe")
+
+[node name="Bush10" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(844, 930)
+texture = ExtResource("13_qajqe")
+
+[node name="Bush11" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(665, 402)
+texture = ExtResource("13_qajqe")
+
+[node name="Bush12" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(895, 403)
+texture = ExtResource("13_qajqe")
+
+[node name="Bush13" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(1835, 994)
+texture = ExtResource("13_qajqe")
+
+[node name="Bush14" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(447, 771)
+texture = ExtResource("13_qajqe")
+
+[node name="Bush15" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+position = Vector2(420, 771)
+texture = ExtResource("13_qajqe")
+
+[node name="Bush16" type="Sprite2D" parent="BG/ParallaxLayer/Trees"]
+z_index = -1
+position = Vector2(1076, 421)
+rotation = 0.3856
+texture = ExtResource("13_qajqe")
+
 [node name="Addons" type="Node2D" parent="BG/ParallaxLayer"]
 
 [node name="Spikes-top" type="Sprite2D" parent="BG/ParallaxLayer/Addons"]
@@ -1057,42 +1157,45 @@ autostart = true
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_q01lr")]
 
-[node name="Spawners" type="Node2D" parent="."]
+[node name="FrogSpawners" type="Node2D" parent="."]
 
-[node name="Spawner" type="Path2D" parent="Spawners"]
+[node name="Spawner" type="Path2D" parent="FrogSpawners"]
 position = Vector2(46.2486, 12)
 scale = Vector2(0.911074, 1)
 curve = SubResource("Curve2D_8bamt")
 
-[node name="Spawner2" type="Path2D" parent="Spawners"]
+[node name="Spawner2" type="Path2D" parent="FrogSpawners"]
 curve = SubResource("Curve2D_ascjm")
 
-[node name="Spawner3" type="Path2D" parent="Spawners"]
+[node name="Spawner3" type="Path2D" parent="FrogSpawners"]
 position = Vector2(30, 18)
 scale = Vector2(0.97878, 0.9625)
 curve = SubResource("Curve2D_5b6jw")
 
-[node name="Spawner4" type="Path2D" parent="Spawners"]
+[node name="Spawner4" type="Path2D" parent="FrogSpawners"]
 position = Vector2(41.0555, 0)
 scale = Vector2(0.975476, 1)
 curve = SubResource("Curve2D_kist8")
 
-[node name="Spawner5" type="Path2D" parent="Spawners"]
+[node name="Spawner5" type="Path2D" parent="FrogSpawners"]
 curve = SubResource("Curve2D_kefvw")
 
-[node name="Spawner6" type="Path2D" parent="Spawners"]
+[node name="Spawner6" type="Path2D" parent="FrogSpawners"]
 curve = SubResource("Curve2D_nb81y")
 
-[node name="Spawner7" type="Path2D" parent="Spawners"]
+[node name="Spawner7" type="Path2D" parent="FrogSpawners"]
 curve = SubResource("Curve2D_lhsec")
 
-[node name="Spawner8" type="Path2D" parent="Spawners"]
+[node name="Spawner8" type="Path2D" parent="FrogSpawners"]
 curve = SubResource("Curve2D_vtdo5")
 
-[node name="Spawner9" type="Path2D" parent="Spawners"]
+[node name="Spawner9" type="Path2D" parent="FrogSpawners"]
 position = Vector2(16, 1)
 scale = Vector2(0.969289, 1)
 curve = SubResource("Curve2D_4a23y")
+
+[node name="CherrySpawners" type="Node2D" parent="."]
+position = Vector2(-10, -2)
 
 [connection signal="timeout" from="Mobs/MobTimer" to="Mobs" method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="Coll/CherryTimer" to="Coll" method="_on_timer_timeout"]

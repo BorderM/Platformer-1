@@ -23,19 +23,20 @@ var randinty
 var rng = RandomNumberGenerator.new()
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+@onready var health_bar = $HealthBar
 @onready var anim = get_node("AnimationPlayer")	
 	
 func _ready():
 	if FileAccess.file_exists(SAVE_PATH) == true and Game.load == true and playerHP > 0:
 		loadGame()
-	
+	health_bar.init_health(playerHP)
+		
 	
 func _physics_process(delta):
-	health_bar()
+	health_bar.max_value = player_max_hp
+	_set_health(playerHP)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -65,6 +66,8 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	player_pos = get_global_position()
+	
+	
 	
 	if playerHP <= 0:
 		queue_free()
@@ -117,9 +120,13 @@ func new_game():
 	player_current_xp = 0
 	player_power = 1
 
-func health_bar():
-	$"HealthBar".value = playerHP
-	$"HealthBar".max_value = player_max_hp
+func _take_damage(value):
+	playerHP -= value
+	_set_health(playerHP)
+
+func _set_health(value):
+	health_bar.health = playerHP
+	
 
 func loadGame():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)

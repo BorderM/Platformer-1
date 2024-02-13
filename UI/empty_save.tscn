@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbnmsxy4oquor"]
 
-[ext_resource type="Script" path="res://Emptysavepopup.gd" id="1_pbvj6"]
+[ext_resource type="Script" path="res://UI/Emptysavepopup.gd" id="1_pbvj6"]
 [ext_resource type="Theme" uid="uid://bggh3lkw4p7y" path="res://Themes/my_theme.tres" id="2_j1ccm"]
 
 [node name="Empty save" type="Control"]

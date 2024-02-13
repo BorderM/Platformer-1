@@ -1,4 +1,7 @@
+Marker2D
+Node2D
 ProgressBar
+Timer
 CanvasLayer
 ColorRect
 PanelContainer
@@ -6,9 +9,7 @@ Panel
 AnimationPlayer
 Button
 HBoxContainer
-Node2D
 Container
 TextureRect
 Control
 CollisionShape2D
-StaticBody2D

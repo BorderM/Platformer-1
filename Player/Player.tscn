@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c8vqw6f04h8kq" path="res://Sunny-land-files/Graphical Assets/sprites/player/run/player-run-4.png" id="12_rcmam"]
 [ext_resource type="Texture2D" uid="uid://bwm6bukv6ykt0" path="res://Sunny-land-files/Graphical Assets/sprites/player/run/player-run-5.png" id="13_jkfip"]
 [ext_resource type="Texture2D" uid="uid://qu76dxls8tjx" path="res://Sunny-land-files/Graphical Assets/sprites/player/run/player-run-6.png" id="14_m1lmn"]
-[ext_resource type="Theme" uid="uid://bggh3lkw4p7y" path="res://Themes/my_theme.tres" id="18_e88sc"]
+[ext_resource type="PackedScene" uid="uid://datp2ggaso2g6" path="res://UI/health_bar.tscn" id="18_sq0gb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bgp2x"]
 atlas = ExtResource("2_j5lf6")
@@ -322,15 +322,8 @@ position = Vector2(9, 13)
 shape = SubResource("CapsuleShape2D_xoxv0")
 metadata/_edit_lock_ = true
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -16.0
-offset_top = -19.0
-offset_right = 34.0
-offset_bottom = -9.0
-size_flags_vertical = 4
-theme = ExtResource("18_e88sc")
-max_value = 10.0
-step = 1.0
-value = 5.0
-show_percentage = false
-metadata/_edit_use_anchors_ = true
+[node name="HealthBar" parent="." instance=ExtResource("18_sq0gb")]
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 31.0
+offset_bottom = -8.0

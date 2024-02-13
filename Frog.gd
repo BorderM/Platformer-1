@@ -6,6 +6,7 @@ enum direction {left, right}
 
 var hasBeenHit: bool = false
 var frogHP = 1
+var frogMaxHP = 1
 var speed = 100
 var player
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -14,10 +15,13 @@ var facing_dir = direction.left
 var rand_gen = RandomNumberGenerator.new()
 const JUMP_VELOCITY = -350.0
 var given_rewards = false
+@onready var healthbar = $HealthBar
 
 	
 func _ready():
-	health_bar()
+	#healthbar.init_health(frogHP)
+	healthbar.health = frogHP
+	healthbar.max_value = frogMaxHP
 	rand_gen.randomize()
 	if rand_gen.randf_range(-1, 1) < 0: 
 		velocity.x = speed * -1
@@ -102,12 +106,12 @@ func _on_player_detection_body_exited(body):
 func _on_player_collision_body_entered(body):
 	if body.name == "Player" and hasBeenHit == false:
 		hasBeenHit = true
-		body.playerHP -= 3
+		$"../../../Player/Player"._take_damage(3)
 		frog_take_damage()
 		
 func frog_take_damage():
 	frogHP -= get_node("../../../Player/Player").player_power
-	health_bar()
+	_set_health(frogHP)
 	if frogHP <= 0:
 		frogHP = 0
 		frog_death()
@@ -126,7 +130,8 @@ func frog_death():
 		await $AnimatedSprite2D.animation_finished
 		self.queue_free()
 	
-func health_bar():
-	$HealthBar.value = frogHP
+func _set_health(value):
+	healthbar.value = frogHP
+	healthbar.max_value = frogMaxHP
 
 

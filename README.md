@@ -13,3 +13,7 @@
 09/02 - Frogs will now jump toward the player if they encounter a ledge while chasing. Added some aesthetic to the background. Added a game over scene with fade in and fade out. Save file is now deleted upon death (previously it would load the most recent save with player hp above 0). Adjusted frog player detection system. Added platforms the player can jump on (some are hidden :D )
 
 10/02 - Pause menu can be opened and closed with the escape key.
+
+11/02 - Added health bars.
+
+12/02 - Updated health bars. 

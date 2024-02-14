@@ -17,3 +17,5 @@
 11/02 - Added health bars.
 
 12/02 - Updated health bars. 
+
+14/02 - Updated how player variables are stored. Save and Load functions are updated to be separate from player. Minor changes to health bars.

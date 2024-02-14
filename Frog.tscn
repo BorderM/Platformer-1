@@ -86,11 +86,11 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q0orp"]
 radius = 9.0
-height = 18.0
+height = 20.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i07s7"]
-radius = 4.0
-height = 18.0
+radius = 3.0
+height = 24.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jc4r0"]
 size = Vector2(26, 12)
@@ -103,15 +103,16 @@ floor_max_angle = 1.29503
 script = ExtResource("1_jj00j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(0, 3)
 sprite_frames = SubResource("SpriteFrames_2x716")
 animation = &"Idle"
 metadata/_edit_lock_ = true
 
 [node name="FrogCollision" type="CollisionShape2D" parent="."]
+z_index = 1
 position = Vector2(-1, 5)
 shape = SubResource("CapsuleShape2D_q0orp")
-metadata/_edit_lock_ = true
 
 [node name="GroundDetect" type="RayCast2D" parent="."]
 position = Vector2(-15, 6)
@@ -133,24 +134,25 @@ polygon = PackedVector2Array(-38.5302, 7.42857, -11.1574, -18, 29.6043, -18, 22.
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MobHead"]
-position = Vector2(-1, -1)
+z_index = 1
+position = Vector2(-1, -2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_i07s7")
 one_way_collision_margin = 0.0
-metadata/_edit_lock_ = true
 
 [node name="MobSides" type="Area2D" parent="."]
 position = Vector2(0, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MobSides"]
+z_index = 1
 position = Vector2(-0.5, -2)
 shape = SubResource("RectangleShape2D_jc4r0")
 metadata/_edit_lock_ = true
 
 [node name="HealthBar" parent="." instance=ExtResource("14_f1vmk")]
-offset_left = -23.0
+offset_left = -18.0
 offset_top = -16.0
-offset_right = 22.0
+offset_right = 17.0
 offset_bottom = -10.0
 value = 10.0
 

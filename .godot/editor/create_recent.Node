@@ -1,7 +1,7 @@
+Timer
 Marker2D
 Node2D
 ProgressBar
-Timer
 CanvasLayer
 ColorRect
 PanelContainer
@@ -12,4 +12,3 @@ HBoxContainer
 Container
 TextureRect
 Control
-CollisionShape2D

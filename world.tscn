@@ -500,6 +500,7 @@ func random_spawn_coords():
 script/source = "extends Label
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -507,7 +508,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	text = \"HP: \" + str(get_node(\"../../../Player/Player\").playerHP)
+	text = \"HP: \" + str(get_node(\"../../../Player/Player\").player_data[\"playerHP\"])
 "
 
 [sub_resource type="GDScript" id="GDScript_45gw5"]
@@ -521,7 +522,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	text = \"Gold: \" + str(get_node(\"../../../Player/Player\").gold)
+	text = \"Gold: \" + str(get_node(\"../../../Player/Player\").player_data[\"gold\"])
 "
 
 [sub_resource type="GDScript" id="GDScript_uksmi"]
@@ -535,7 +536,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	text = \"Level: \" + str(get_node(\"../../../Player/Player\").player_level)
+	text = \"Level: \" + str(get_node(\"../../../Player/Player\").player_data[\"player_level\"])
 "
 
 [sub_resource type="GDScript" id="GDScript_tqdfe"]
@@ -549,7 +550,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	text = \"xp: \" + str(get_node(\"../../../Player/Player\").player_current_xp)
+	text = \"xp: \" + str(get_node(\"../../../Player/Player\").player_data[\"player_current_xp\"])
 "
 
 [sub_resource type="GDScript" id="GDScript_g0rfm"]
@@ -794,7 +795,6 @@ one_way_collision_margin = 5.0
 script = ExtResource("2_0buq0")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="BG"]
-motion_mirroring = Vector2(1920, 0)
 
 [node name="backgrounds" type="Node2D" parent="BG/ParallaxLayer"]
 

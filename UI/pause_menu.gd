@@ -21,7 +21,7 @@ func _on_resume_pressed():
 	game_paused = false
 	
 func _on_save_pressed():
-	Utils.saveGame()
+	Utils.saveGame($"../../Player/Player")
 	game_paused = false
 	get_tree().change_scene_to_file("res://main.tscn")
 	

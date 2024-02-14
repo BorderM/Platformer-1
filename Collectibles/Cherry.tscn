@@ -16,10 +16,10 @@ var given_rewards = false
 func _on_body_entered(body):
 	if body.name == \"Player\":
 		given_rewards = true
-		body.gold += 1
-		body.playerHP += 2
-		if body.playerHP > body.player_max_hp:
-			body.playerHP = body.player_max_hp
+		body.player_data[\"gold\"] += 1
+		get_node(\"../../../Player/Player\")._gain_health(2)
+		if body.player_data[\"playerHP\"] > body.player_data[\"player_max_hp\"]:
+			body.player_data[\"playerHP\"] = body.player_data[\"player_max_hp\"]
 		var tween = get_tree().create_tween()
 		var tween1 = get_tree().create_tween()
 		tween.tween_property(self, \"position\", position - Vector2(0,35), 0.4)

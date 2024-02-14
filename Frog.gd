@@ -40,6 +40,7 @@ func _physics_process(delta):
 	#sets gravity of frog
 	velocity.y += gravity * delta
 
+	
 	if $AnimatedSprite2D.animation != "Death":
 			#if the raycast is hitting nothing or a wall and the frog is on the floor flip facing side
 		if chase == true:
@@ -110,7 +111,7 @@ func _on_player_collision_body_entered(body):
 		frog_take_damage()
 		
 func frog_take_damage():
-	frogHP -= get_node("../../../Player/Player").player_power
+	frogHP -= get_node("../../../Player/Player").player_data["player_power"]
 	_set_health(frogHP)
 	if frogHP <= 0:
 		frogHP = 0
@@ -121,14 +122,16 @@ func frog_death():
 	$HealthBar.hide()
 	if not given_rewards:
 		given_rewards = true
-		get_node("../../../Player/Player").gold += 3
+		get_node("../../../Player/Player").player_data["gold"] += 3
 		get_node("../../../Player/Player").gain_experience(1)
-		$MobHead/CollisionShape2D.disabled = true
-		$MobSides/CollisionShape2D.disabled = true
 		chase = false
 		$AnimatedSprite2D.play("Death")
+		#$AnimatedSprite2D.connect("animation_finished", self, "_on_animation_finished")
 		await $AnimatedSprite2D.animation_finished
 		self.queue_free()
+	
+func _on_animation_finished():
+	self.queue_free()	
 	
 func _set_health(value):
 	healthbar.value = frogHP

@@ -19,3 +19,5 @@
 12/02 - Updated health bars. 
 
 14/02 - Updated how player variables are stored. Save and Load functions are updated to be separate from player. Minor changes to health bars.
+
+17/02 - No more jumping damage. Added a janky ass sword. Character now follows mouse movement. Left click to swing sword. If sword collides with frog, frog takes damage. When climbing ladders the sword will hide. Sword damage is equal to player power. I think i fixed the health bars???

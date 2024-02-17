@@ -16,6 +16,7 @@ var rand_gen = RandomNumberGenerator.new()
 const JUMP_VELOCITY = -350.0
 var given_rewards = false
 @onready var healthbar = $HealthBar
+signal sword_in_frog
 
 	
 func _ready():
@@ -39,7 +40,9 @@ func start_chasing():
 func _physics_process(delta):
 	#sets gravity of frog
 	velocity.y += gravity * delta
-
+	if frogHP <= 0:
+		frogHP = 0
+		frog_death()
 	
 	if $AnimatedSprite2D.animation != "Death":
 			#if the raycast is hitting nothing or a wall and the frog is on the floor flip facing side
@@ -91,9 +94,6 @@ func change_dir():
 	$PlayerDetection/CollisionPolygon2D.position.x = 87.5 if facing_dir == direction.right else -87.5
 	$PlayerDetection/CollisionPolygon2D.scale.x = -3.361 if facing_dir == direction.right else 3.361
 		
-func _on_mob_head_body_entered(body):
-	if body.name == "Player":
-		frog_take_damage()
 
 func _on_player_detection_body_entered(body):
 	if body.name == "Player":
@@ -113,18 +113,19 @@ func _on_player_collision_body_entered(body):
 func frog_take_damage():
 	frogHP -= get_node("../../../Player/Player").player_data["player_power"]
 	_set_health(frogHP)
-	if frogHP <= 0:
-		frogHP = 0
-		frog_death()
+	
 			
 
 func frog_death():
 	$HealthBar.hide()
+	chase = false
+	velocity.x = 0
+	$MobBody/SwordCollision.disabled = true
+	$MobSides/CollisionShape2D.disabled = true
 	if not given_rewards:
 		given_rewards = true
 		get_node("../../../Player/Player").player_data["gold"] += 3
-		get_node("../../../Player/Player").gain_experience(1)
-		chase = false
+		get_node("../../../Player/Player").gain_experience(3)
 		$AnimatedSprite2D.play("Death")
 		#$AnimatedSprite2D.connect("animation_finished", self, "_on_animation_finished")
 		await $AnimatedSprite2D.animation_finished
@@ -137,4 +138,8 @@ func _set_health(value):
 	healthbar.value = frogHP
 	healthbar.max_value = frogMaxHP
 
-
+func _on_mob_body_area_entered(area):
+	if area.name == "Sword":
+		if get_node("../../../Player/Player/Sword").sword_swing_state == true:
+			frog_take_damage()
+		

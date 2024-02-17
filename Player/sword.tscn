@@ -1,0 +1,117 @@
+[gd_scene load_steps=11 format=3 uid="uid://dvaqrpwnmixf3"]
+
+[ext_resource type="Script" path="res://Player/sword.gd" id="1_bp4p0"]
+[ext_resource type="Texture2D" uid="uid://n7rvij21l2tv" path="res://Addons/Sword_Default.png" id="1_rw55c"]
+[ext_resource type="Texture2D" uid="uid://cybxcnksi4vqn" path="res://Addons/Sword_midswing.png" id="2_hfsql"]
+[ext_resource type="Texture2D" uid="uid://xvmpwaltqs1o" path="res://Addons/Sword_endswing.png" id="3_mu3mg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6djgw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rw55c")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rw55c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hfsql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mu3mg")
+}],
+"loop": true,
+"name": &"Swing",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dm72o"]
+size = Vector2(11776.5, 172.349)
+
+[sub_resource type="Animation" id="Animation_cekbk"]
+resource_name = "Swing"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sword:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.2)
+}
+
+[sub_resource type="Animation" id="Animation_y2q5r"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sword:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_55je2"]
+resource_name = "Idle"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sword:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jr6kj"]
+_data = {
+"Idle": SubResource("Animation_55je2"),
+"RESET": SubResource("Animation_y2q5r"),
+"Swing": SubResource("Animation_cekbk")
+}
+
+[node name="Sword" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_6djgw")
+animation = &"Swing"
+script = ExtResource("1_bp4p0")
+
+[node name="Sword" type="Area2D" parent="."]
+position = Vector2(-151.979, -78.6191)
+scale = Vector2(0.0139766, -1.46552)
+collision_layer = 3
+collision_mask = 3
+
+[node name="SwordSwingColl" type="CollisionPolygon2D" parent="Sword"]
+position = Vector2(13375.1, -11.2401)
+rotation = -0.010472
+scale = Vector2(54.695, -65.7162)
+skew = -1.54895
+polygon = PackedVector2Array(0.419935, -8.40401, -4.52033, -20.1375, 11.1455, -32.1416, 40.4276, -26.2799, 66.5865, -3.41897, 92.9656, 17.4475, 103.878, 42.8623, 102.269, 68.7432, 88.3164, 82.1732, -18.6992, 91.3092, -24.4874, 63.0347, -22.4336, 46.7625, -28.8415, 36.1824, -34.0764, 21.6806, -31.3727, 14.1316, -28.4281, 10.0495, -17.3785, 11.6244, -10.8974, 9.39687, -14.6956, -1.38601, -22.1402, -13.0263, -18.2736, -14.1633)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword"]
+position = Vector2(12873.4, -46.1523)
+shape = SubResource("RectangleShape2D_dm72o")
+
+[node name="SwordPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_jr6kj")
+}
+
+[connection signal="body_entered" from="Sword" to="." method="_on_sword_body_entered"]

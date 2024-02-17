@@ -21,9 +21,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -203.0
-offset_top = -195.0
+offset_top = -264.5
 offset_right = 203.0
-offset_bottom = 195.0
+offset_bottom = 264.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -44,12 +44,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = -182.5
-offset_right = 175.0
-offset_bottom = 182.5
+offset_left = -172.0
+offset_top = -258.5
+offset_right = 178.0
+offset_bottom = 153.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 6
 
 [node name="Instructions" type="Label" parent="Instructions/ColorRect/VBoxContainer"]
 layout_mode = 2
@@ -63,12 +64,31 @@ metadata/_edit_lock_ = true
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_dqp38")
-theme_override_font_sizes/font_size = 21
-text = "Jump on monsters to earn gold and experience but don't get hit or you'll lose health"
+theme_override_font_sizes/font_size = 22
+text = "Use left click to swing your sword. Kill frogs to earn gold and experience. "
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
-metadata/_edit_lock_ = true
+
+[node name="MouseFacing" type="Label" parent="Instructions/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dqp38")
+theme_override_font_sizes/font_size = 22
+text = "The character will face toward your mouse cursor!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Dontgethit" type="Label" parent="Instructions/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dqp38")
+theme_override_font_sizes/font_size = 22
+text = "Don't get hit or you'll lose health!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Levelup" type="Label" parent="Instructions/ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(250, 0)
@@ -120,10 +140,10 @@ metadata/_edit_lock_ = true
 [node name="Ok" type="Button" parent="Instructions/ColorRect"]
 layout_direction = 2
 layout_mode = 2
-anchor_left = 0.337438
-anchor_top = 0.751282
-anchor_right = 0.647783
-anchor_bottom = 0.905128
+anchor_left = 0.334975
+anchor_top = 0.775047
+anchor_right = 0.64532
+anchor_bottom = 0.928893
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("3_pvlry")

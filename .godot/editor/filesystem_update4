@@ -1,14 +1,19 @@
-res://bg.tscn
+res://Player/sword.tscn
 res://UI/pause_menu.gd
 res://Themes/my_theme.tres
 res://Font/Line spacing.tres
 res://UI/pausemenu2.gdshader
-res://Player/Player.gd
-res://Global/Utils.gd
+res://bg.tscn
 res://main.tscn
 res://world.tscn
 res://Player/Player.tscn
 res://Frog.tscn
 res://UI/health_bar.tscn
-res://Frog.gd
 res://Collectibles/Cherry.tscn
+res://Player/sword.gd
+res://Player/Player.gd
+res://Frog.gd
+res://Player.tscn
+res://Player/HealthBar.gd
+res://UI/instructions.tscn
+res://Player/Label.gd

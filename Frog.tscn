@@ -86,14 +86,14 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q0orp"]
 radius = 9.0
-height = 20.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i07s7"]
-radius = 3.0
-height = 24.0
+radius = 9.0
+height = 26.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jc4r0"]
-size = Vector2(26, 12)
+size = Vector2(26, 18)
 
 [node name="Frog" type="CharacterBody2D"]
 position = Vector2(249, 98)
@@ -130,12 +130,12 @@ position = Vector2(-87.5, -14)
 scale = Vector2(3.361, 3.5)
 polygon = PackedVector2Array(-38.5302, 7.42857, -11.1574, -18, 29.6043, -18, 22.166, 7.42857)
 
-[node name="MobHead" type="Area2D" parent="."]
+[node name="MobBody" type="Area2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MobHead"]
+[node name="SwordCollision" type="CollisionShape2D" parent="MobBody"]
 z_index = 1
-position = Vector2(-1, -2)
+position = Vector2(-1, 5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_i07s7")
 one_way_collision_margin = 0.0
@@ -145,7 +145,7 @@ position = Vector2(0, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MobSides"]
 z_index = 1
-position = Vector2(-0.5, -2)
+position = Vector2(-1, -5)
 shape = SubResource("RectangleShape2D_jc4r0")
 metadata/_edit_lock_ = true
 
@@ -158,5 +158,5 @@ value = 10.0
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
-[connection signal="body_entered" from="MobHead" to="." method="_on_mob_head_body_entered"]
+[connection signal="area_entered" from="MobBody" to="." method="_on_mob_body_area_entered"]
 [connection signal="body_entered" from="MobSides" to="." method="_on_player_collision_body_entered"]

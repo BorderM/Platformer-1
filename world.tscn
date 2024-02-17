@@ -649,9 +649,9 @@ point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_4a23y"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 24, 994, 0, 0, 0, 0, 456, 995, 0, 0, 0, 0, 588.06, 934, 0, 0, 0, 0, 936.769, 933, 0, 0, 0, 0, 1060.57, 996, 0, 0, 0, 0, 1880, 1000, 0, 0, 0, 0, 1109.06, 997, 0, 0, 0, 0, 1060.57, 996, 0, 0, 0, 0, 936.769, 933, 0, 0, 0, 0, 588.06, 934, 0, 0, 0, 0, 456.004, 995, 0, 0, 0, 0, 24, 994)
+"points": PackedVector2Array(0, 0, 0, 0, 24, 994, 0, 0, 0, 0, 456, 995, 0, 0, 0, 0, 588.06, 934, 0, 0, 0, 0, 936.769, 933, 0, 0, 0, 0, 1060.57, 996, 0, 0, 0, 0, 1880, 1000, 0, 0, 0, 0, 1109.06, 997, 0, 0, 0, 0, 1060.57, 996, 0, 0, 0, 0, 936.769, 933, 0, 0, 0, 0, 588.06, 934, 0, 0, 0, 0, 456.004, 995, 0, 0, 0, 0, 228.002, 994, 0, 0, 0, 0, 24, 994)
 }
-point_count = 12
+point_count = 13
 
 [node name="world" type="Node2D"]
 process_mode = 1
@@ -1071,9 +1071,7 @@ position = Vector2(1326, 689)
 [node name="Player" type="Node2D" parent="."]
 
 [node name="Player" parent="Player" instance=ExtResource("1_32n2a")]
-position = Vector2(145, 982)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+position = Vector2(138, 985)
 
 [node name="Mobs" type="Node2D" parent="."]
 script = SubResource("GDScript_obr2o")
@@ -1190,7 +1188,7 @@ curve = SubResource("Curve2D_lhsec")
 curve = SubResource("Curve2D_vtdo5")
 
 [node name="Spawner9" type="Path2D" parent="FrogSpawners"]
-position = Vector2(16, 1)
+position = Vector2(14, -2)
 scale = Vector2(0.969289, 1)
 curve = SubResource("Curve2D_4a23y")
 

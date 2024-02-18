@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bwm6bukv6ykt0" path="res://Sunny-land-files/Graphical Assets/sprites/player/run/player-run-5.png" id="13_jkfip"]
 [ext_resource type="Texture2D" uid="uid://qu76dxls8tjx" path="res://Sunny-land-files/Graphical Assets/sprites/player/run/player-run-6.png" id="14_m1lmn"]
 [ext_resource type="PackedScene" uid="uid://datp2ggaso2g6" path="res://UI/health_bar.tscn" id="18_sq0gb"]
-[ext_resource type="PackedScene" uid="uid://dvaqrpwnmixf3" path="res://Player/sword.tscn" id="19_ac0fx"]
+[ext_resource type="PackedScene" uid="uid://bamxrfnpnljgs" path="res://Player/sword_fencing.tscn" id="20_unpan"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bgp2x"]
 atlas = ExtResource("2_j5lf6")
@@ -343,6 +343,7 @@ offset_top = -13.0
 offset_right = 26.0
 offset_bottom = -7.0
 
-[node name="Sword" parent="." instance=ExtResource("19_ac0fx")]
-position = Vector2(28, 16)
-scale = Vector2(0.168, 0.155)
+[node name="SwordFencing" parent="." instance=ExtResource("20_unpan")]
+position = Vector2(78, 18)
+scale = Vector2(0.228958, 0.201667)
+autoplay = "default"

@@ -20,8 +20,8 @@ func sword_swing():
 		sword_swing_state = true
 		$SwordPlayer.play("Swing")
 		await $SwordPlayer.animation_finished
-		sword_swing_state = false
-		$SwordPlayer.play("Idle")
+	sword_swing_state = false
+	$SwordPlayer.play("Idle")	
 
 #func _on_sword_body_entered(body):
 		#if body.name == "frogBody" and sword_swing_state == true:

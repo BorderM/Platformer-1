@@ -1,19 +1,19 @@
-res://Collectibles/Cherry.tscn::302ce87e244af007370ffb566e60cae6::1708157709::res://.godot/exported/133200997/export-b81088a6733e7ab09039e3e3476deb4c-Cherry.scn
-res://Player/Player.tscn::127e38c78cc24506db409c5d005b9225::1708157732::res://.godot/exported/133200997/export-48b487cb3fbab0e0d627d8f8de2ba1d9-Player.scn
-res://bg.tscn::08cc0a12384ae75ceb17059f75ffc780::1708157709::res://.godot/exported/133200997/export-bba13d5cf0da78405995582cb41e9396-bg.scn
-res://Frog.tscn::285c8ad0b47e9aed964b8db120020941::1708157709::res://.godot/exported/133200997/export-140d17860f307c4479861481bc4b5af0-Frog.scn
-res://main.tscn::9bbab4917afa41a5a139e50397236bae::1708157709::res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn
-res://world.tscn::d2e3a8047481e3fba6c156a6a8d0f42b::1708157709::res://.godot/exported/133200997/export-76e0adcbc83681695885bae615f516ae-world.scn
+res://Collectibles/Cherry.tscn::302ce87e244af007370ffb566e60cae6::1708218315::res://.godot/exported/133200997/export-b81088a6733e7ab09039e3e3476deb4c-Cherry.scn
+res://Player/Player.tscn::368e016152c9dff20c2d52098944e8f5::1708220620::res://.godot/exported/133200997/export-48b487cb3fbab0e0d627d8f8de2ba1d9-Player.scn
+res://bg.tscn::08cc0a12384ae75ceb17059f75ffc780::1708220620::res://.godot/exported/133200997/export-bba13d5cf0da78405995582cb41e9396-bg.scn
+res://Frog.tscn::285c8ad0b47e9aed964b8db120020941::1708220654::res://.godot/exported/133200997/export-140d17860f307c4479861481bc4b5af0-Frog.scn
+res://main.tscn::9bbab4917afa41a5a139e50397236bae::1708220726::res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn
+res://world.tscn::d2e3a8047481e3fba6c156a6a8d0f42b::1708220620::res://.godot/exported/133200997/export-76e0adcbc83681695885bae615f516ae-world.scn
 res://UI/game_theme.tres::ba70192de2321aeea0c362ea6eb527e5::1706663052::res://.godot/exported/133200997/export-9d18ec9fa55181823a72e2d025f0d506-game_theme.res
 res://UI/Overwrite.tscn::1ccc2519b799ecc8cd19d6138e360830::1707431900::res://.godot/exported/133200997/export-9943af7c6ec54e2c27ada8571ed111e8-Overwrite.scn
 res://UI/pause_menu.tscn::d9606cf00249900962541274c1122eb6::1707718344::res://.godot/exported/133200997/export-525826eebbacba7f238c774f76aea232-pause_menu.scn
-res://Font/Line spacing.tres::7c60af9ed55865e32351a07cef5ece17::1708139766::res://.godot/exported/133200997/export-8f6aa23acd45269c8a9ef0c8a746ffca-Line spacing.res
-res://Themes/my_theme.tres::382f477b7d619ebb4738096f44ed6a9a::1708139766::res://.godot/exported/133200997/export-2f69714f0d4af55b9c8472242f0f7628-my_theme.res
+res://Font/Line spacing.tres::7c60af9ed55865e32351a07cef5ece17::1708207760::res://.godot/exported/133200997/export-8f6aa23acd45269c8a9ef0c8a746ffca-Line spacing.res
+res://Themes/my_theme.tres::90191022a2b426198bdd958db15258c3::1708207760::res://.godot/exported/133200997/export-2f69714f0d4af55b9c8472242f0f7628-my_theme.res
 res://UI/empty_save.tscn::33c5f2bbbd28bc5b77ce1ec23481ff0f::1707717806::res://.godot/exported/133200997/export-b9af599e4e5f8eba1d265a0211a70f3f-empty_save.scn
-res://UI/pause_menu_2.tscn::1258c52874165db945d5195765d928bb::1706837286::res://.godot/exported/133200997/export-8d5e080914e3b5931db4aefa8417589c-pause_menu_2.scn
 res://ladder.tscn::9c435ae3efba169ecfaf00025d7284b2::1707718344::res://.godot/exported/133200997/export-61d09a3c1b01aa618cf7611fc62451ae-ladder.scn
 res://game_over.tscn::d037a4f1ec3966e127f24e84149a679b::1707718344::res://.godot/exported/133200997/export-d8e4acb474e0f28479495aaad84d873f-game_over.scn
 res://Player.tscn::8c6224f4b654adedce1c6ce23ce456d7::1708144921::res://.godot/exported/133200997/export-90e1ff3baa03524a506ff0f7a9d78dcf-Player.scn
-res://UI/health_bar.tscn::51cb3e474255af1083d7dfa764dce131::1708157709::res://.godot/exported/133200997/export-173e23a6b9620f878c06294d0840b6f1-health_bar.scn
-res://UI/instructions.tscn::155fc0fa03baf444d6f55636f7deb1d3::1708156168::res://.godot/exported/133200997/export-f68d262a06f222c26f348cb110e96c49-instructions.scn
-res://Player/sword.tscn::b89b11495c3cc7dd8a3a28e315432cc6::1708157709::res://.godot/exported/133200997/export-5fae6e3fd1e0f7b8d49f2a37ddcde830-sword.scn
+res://UI/health_bar.tscn::51cb3e474255af1083d7dfa764dce131::1708218315::res://.godot/exported/133200997/export-173e23a6b9620f878c06294d0840b6f1-health_bar.scn
+res://UI/instructions.tscn::03251f607e4dc924dfea7b4a2ff8cd40::1708220724::res://.godot/exported/133200997/export-f68d262a06f222c26f348cb110e96c49-instructions.scn
+res://Player/sword.tscn::2beed53aedc7f26cd3528088f331fa92::1708210431::res://.godot/exported/133200997/export-5fae6e3fd1e0f7b8d49f2a37ddcde830-sword.scn
+res://Player/sword_fencing.tscn::73f82ee01d9003c480914ab59225cecb::1708220620::res://.godot/exported/133200997/export-f9be782155cc2ce0c7490aeb4f91a624-sword_fencing.scn

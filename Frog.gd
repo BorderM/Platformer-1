@@ -69,6 +69,7 @@ func _physics_process(delta):
 				velocity.x = -speed
 			elif velocity.x >= 0:
 				velocity.x = speed
+				
 		
 	
 	if velocity.x < 0:
@@ -139,7 +140,7 @@ func _set_health(value):
 	healthbar.max_value = frogMaxHP
 
 func _on_mob_body_area_entered(area):
-	if area.name == "Sword":
-		if get_node("../../../Player/Player/Sword").sword_swing_state == true:
+	if area.name == "SwordAttack":
+		if get_node("../../../Player/Player/SwordFencing").sword_swing_state == true:
 			frog_take_damage()
 		

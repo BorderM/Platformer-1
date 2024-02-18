@@ -47,17 +47,17 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		anim.play("Jump")
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
+	# gets postive or negative mouse direction to face
 	var character_facing = (mouse_position.x - self.position.x)
 	if character_facing <= -1:
 		get_node("AnimatedSprite2D").flip_h = true
-		get_node("Sword").flip_h = true
-		$Sword.position.x = -10
+		get_node("SwordFencing").flip_h = true
+		$SwordFencing.position.x = -61
 	elif character_facing >= 1:
 		get_node("AnimatedSprite2D").flip_h = false
-		get_node("Sword").flip_h = false
-		$Sword.position.x = 28
+		get_node("SwordFencing").flip_h = false
+		$SwordFencing.position.x = 78
 	if direction:
 		velocity.x = direction * SPEED
 		if velocity.y == 0:
@@ -73,7 +73,7 @@ func _physics_process(delta):
 	
 	
 	
-	
+	# Handles player death
 	if player_data["playerHP"] <= 0:
 		anim.play("Death")
 		#queue_free()
@@ -84,15 +84,15 @@ func _physics_process(delta):
 	
 	if is_climbing == true:
 		if (Input.is_action_pressed("ui_up") or Input.is_action_pressed("up")):
-			$Sword.hide()
+			$SwordFencing.hide()
 			velocity.x = 0
 			velocity.y = -200
 			anim.play("Climb")
 		if $AnimatedSprite2D.animation != "Climb":
-			$Sword.show()
+			$SwordFencing.show()
 	else:
 		_on_climb_finished()
-		$Sword.show()	
+		$SwordFencing.show()	
 
 func _on_climb_finished():
 	is_climbing = false

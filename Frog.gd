@@ -5,7 +5,7 @@ class_name frogBody
 enum direction {left, right}
 
 var hasBeenHit: bool = false
-var frogHP = 1
+@export var frogHP = 1
 var frogMaxHP = 1
 var speed = 100
 var player
@@ -128,7 +128,6 @@ func frog_death():
 		get_node("../../../Player/Player").player_data["gold"] += 3
 		get_node("../../../Player/Player").gain_experience(3)
 		$AnimatedSprite2D.play("Death")
-		#$AnimatedSprite2D.connect("animation_finished", self, "_on_animation_finished")
 		await $AnimatedSprite2D.animation_finished
 		self.queue_free()
 	
@@ -143,4 +142,6 @@ func _on_mob_body_area_entered(area):
 	if area.name == "SwordAttack":
 		if get_node("../../../Player/Player/SwordFencing").sword_swing_state == true:
 			frog_take_damage()
+			
+
 		

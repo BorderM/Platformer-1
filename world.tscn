@@ -1193,7 +1193,7 @@ scale = Vector2(0.969289, 1)
 curve = SubResource("Curve2D_4a23y")
 
 [node name="CherrySpawners" type="Node2D" parent="."]
-position = Vector2(-10, -2)
+position = Vector2(-6, 2)
 
 [connection signal="timeout" from="Mobs/MobTimer" to="Mobs" method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="Coll/CherryTimer" to="Coll" method="_on_timer_timeout"]

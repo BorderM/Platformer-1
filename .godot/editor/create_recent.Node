@@ -1,12 +1,12 @@
-CollisionShape2D
+AnimationPlayer
 Area2D
+CollisionShape2D
+AnimatedSprite2D
 GrooveJoint2D
 AnimatableBody2D
 LightOccluder2D
 DirectionalLight2D
 PointLight2D
-AnimationPlayer
-AnimatedSprite2D
 Label
 Node2D
 CanvasLayer

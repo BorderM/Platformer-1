@@ -139,9 +139,11 @@ func _set_health(value):
 	healthbar.max_value = frogMaxHP
 
 func _on_mob_body_area_entered(area):
-	if area.name == "SwordAttack":
-		if get_node("../../../Player/Player/SwordFencing").sword_swing_state == true:
+	if area.name == "SmallSword":
+		if get_node("../../../Player/Player/SmallSword").sword_swing_state == true:
 			frog_take_damage()
-			
-
 		
+func _on_mob_bottom_body_entered(body):
+	if body.name == "frogBody":
+		velocity.y = -200
+		velocity.x = randi_range(100, -100)

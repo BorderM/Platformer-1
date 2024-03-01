@@ -159,10 +159,10 @@ offset_right = 17.0
 offset_bottom = -10.0
 value = 10.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="MobBottom" type="Area2D" parent="."]
 position = Vector2(0, 3)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MobBottom"]
 position = Vector2(4.5, 19)
 shape = SubResource("RectangleShape2D_hhdo2")
 
@@ -170,3 +170,4 @@ shape = SubResource("RectangleShape2D_hhdo2")
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
 [connection signal="area_entered" from="MobBody" to="." method="_on_mob_body_area_entered"]
 [connection signal="body_entered" from="MobSides" to="." method="_on_player_collision_body_entered"]
+[connection signal="body_entered" from="MobBottom" to="." method="_on_mob_bottom_body_entered"]

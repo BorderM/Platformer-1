@@ -1,13 +1,17 @@
-res://Player/sword_fencing.tscn
+res://Frog.gd
+res://Frog.tscn
 res://UI/pause_menu.gd
 res://Themes/my_theme.tres
 res://Font/Line spacing.tres
 res://UI/pausemenu2.gdshader
-res://Player/sword_fencing.gd
 res://bg.tscn
 res://main.tscn
 res://world.tscn
 res://Player/Player.tscn
-res://Frog.tscn
+res://Player/sword_fencing.tscn
 res://UI/instructions.tscn
-res://Frog.gd
+res://Collectibles/Cherry.tscn
+res://Player/sword_fencing.gd
+res://Player/small_sword.tscn
+res://Player/small_sword.gd
+res://Player/Player.gd

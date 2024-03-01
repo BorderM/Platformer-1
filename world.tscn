@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bphehwxw82rmk"]
+[gd_scene load_steps=52 format=3 uid="uid://bphehwxw82rmk"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_1ayvt"]
 [ext_resource type="PackedScene" uid="uid://bp2w2qyn7013d" path="res://Player.tscn" id="1_32n2a"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://c1rk4wpmv7br0" path="res://Sunny-land-files/Graphical Assets/environment/Props/skulls.png" id="18_a6seh"]
 [ext_resource type="Texture2D" uid="uid://dnsm8j2sxx3l7" path="res://Sunny-land-files/Graphical Assets/environment/Props/spike-skull.png" id="19_2gmqf"]
 [ext_resource type="Texture2D" uid="uid://cemfvy1athqsf" path="res://Sunny-land-files/Graphical Assets/environment/Props/block.png" id="20_ojnk0"]
+[ext_resource type="PackedScene" uid="uid://dhf5acpama5of" path="res://Player/small_sword.tscn" id="23_4ss78"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u0sic"]
 texture = ExtResource("2_m8mqf")
@@ -1072,6 +1073,8 @@ position = Vector2(1326, 689)
 
 [node name="Player" parent="Player" instance=ExtResource("1_32n2a")]
 position = Vector2(138, 985)
+
+[node name="SmallSword" parent="Player/Player" instance=ExtResource("23_4ss78")]
 
 [node name="Mobs" type="Node2D" parent="."]
 script = SubResource("GDScript_obr2o")

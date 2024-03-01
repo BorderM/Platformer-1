@@ -18,7 +18,7 @@ func _ready():
 func _process(delta):
 	mouse_position = get_global_mouse_position()
 
-	sword_pos()
+	#sword_pos()
 	sword_attack()
 	
 
@@ -40,17 +40,17 @@ func sword_attack():
 	
 func sword_idle():
 	if self.position.x == 78 and animation_finished:
-			$SwordPlayer.play("IdleRight")
+		$SwordPlayer.play("IdleRight")
 	elif self.position.x == -61 and animation_finished:
 		$SwordPlayer.play("IdleLeft")
 		
-func sword_pos():
-	var angle = mouse_position.angle_to(Vector2.RIGHT)
-	var sword_position = Vector2(cos(angle), sin(angle)) * sword_radius
-	$".".position = sword_position
-	$SwordAttack/CollisionShape2D.position = collision_pos
-	$".".rotation = angle
-	$SwordAttack/CollisionShape2D.rotation = angle
+#func sword_pos():
+	#var angle = mouse_position.angle_to(Vector2.RIGHT)
+	#var sword_position = Vector2(cos(angle), sin(angle)) * sword_radius
+	#$".".position = sword_position
+	#$SwordAttack/CollisionShape2D.position = collision_pos
+	#$".".rotation = angle
+	#$SwordAttack/CollisionShape2D.rotation = angle
 	
 
 	

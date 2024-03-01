@@ -52,12 +52,14 @@ func _physics_process(delta):
 	var character_facing = (mouse_position.x - self.position.x)
 	if character_facing <= -1:
 		get_node("AnimatedSprite2D").flip_h = true
-		get_node("SwordFencing").flip_h = true
-		$SwordFencing.position.x = -61
+		get_node("SmallSword").flip_h = true
+		$SmallSword.position.x = -25
+		$SmallSword.position.y = 24
 	elif character_facing >= 1:
 		get_node("AnimatedSprite2D").flip_h = false
-		get_node("SwordFencing").flip_h = false
-		$SwordFencing.position.x = 78
+		get_node("SmallSword").flip_h = false
+		$SmallSword.position.x = 41
+		$SmallSword.position.y = 24
 	if direction:
 		velocity.x = direction * SPEED
 		if velocity.y == 0:
@@ -84,15 +86,15 @@ func _physics_process(delta):
 	
 	if is_climbing == true:
 		if (Input.is_action_pressed("ui_up") or Input.is_action_pressed("up")):
-			$SwordFencing.hide()
+			$SmallSword.hide()
 			velocity.x = 0
 			velocity.y = -200
 			anim.play("Climb")
 		if $AnimatedSprite2D.animation != "Climb":
-			$SwordFencing.show()
+			$SmallSword.show()
 	else:
 		_on_climb_finished()
-		$SwordFencing.show()	
+		$SmallSword.show()	
 
 func _on_climb_finished():
 	is_climbing = false
